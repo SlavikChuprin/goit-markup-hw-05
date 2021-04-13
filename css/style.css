@@ -16,6 +16,7 @@ color email, tel. footer: rgba(255, 255, 255, 0.6); */
     --bg-hero: #C4C4C4;
     --bg-icon-footer:rgba(255, 255, 255, 0.1);
     --fill: #2196F3;
+    --background-fill: rgba(33, 150, 243, 0.9);
     --bottom-line-header: #ECECEC;
     --main-text:#757575;
     --spacial-text: #000000;
@@ -48,6 +49,7 @@ a:focus {
 
 body {
     margin: 0 auto;
+    padding-top: 80px;
 
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -131,12 +133,20 @@ a.logo {
 /* Header */
 
 header {
-    
+    position: fixed;
+    width: 100%;
+    min-height: 80px;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
     border-bottom: 1px solid;    
     border-color: var(--bottom-line-header);
+    background-color: var(--background-color);
 }
 
 .navigation {
+    
     display: flex;
     align-items: center;
 }
@@ -629,8 +639,7 @@ address {
 
     font-weight: 700;
     font-size: 14px;
-    line-height: 16px;
-    letter-spacing: 1,14;
+    line-height: 1.14;
     text-transform: uppercase;
     color: var(--background-color);
 }
@@ -677,6 +686,7 @@ address {
 /* Portfolio */
 
 .portfolio {
+    
     padding-top: 94px;
     padding-bottom: 94px;
 }
@@ -714,11 +724,7 @@ address {
     background-color: var(--background-btn-still);
 }
 
-.btn-filter  {
-   
 
-/* не получилось приметь псевдокас :not(:first-child) */
-}
 .btn-filter:hover,
 .btn-filter:focus {
     
@@ -778,3 +784,30 @@ address {
     border-bottom: 1px solid var(--boarder-cards);
 }
 
+.description-img {
+    position: relative;
+    
+}
+.description-img p {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    padding: 63px 24px;
+    width: 100%;
+    height: 100%;
+
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+    color: var(--background-color);
+    background-color: var(--background-fill);
+    opacity: 0;
+}
+
+.projects-cards:hover .description-img p {
+
+    opacity: 1;
+}
