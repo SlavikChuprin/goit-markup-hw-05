@@ -44,8 +44,8 @@ ul {
     padding: 0;
 }
 
-a:focus {
-    outline: 1px dashed var(--bottom-line-header);
+/* a:focus {
+    outline: 1px dashed var(--bottom-line-header); */
 }
 
 body {
@@ -73,8 +73,21 @@ a {
     font-family: inherit;
     text-decoration: none;
     color: var(--main-text);
+
+    transition-property: transforme, color, fill, background-color, box-shadow, opacity, border-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
 }
  
+button {
+    cursor: pointer;
+
+    transition-property: color,background-color, box-shadow ;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+
+}
+
 a:hover,
 a:focus {
     
@@ -83,10 +96,6 @@ a:focus {
 
 li {
     list-style-type: none;
-}
-
-button {
-    cursor: pointer;
 }
 
 .visually-hidden {
@@ -127,6 +136,8 @@ button {
 .backdrop.is-hidden {
      opacity: 0;
      pointer-events: none;
+     transform: scale(0);  
+     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal {
       
@@ -141,6 +152,7 @@ button {
     background-color: var(--background-color);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+   
 }
 .modal-closed {
     position: absolute;
@@ -224,27 +236,44 @@ nav {
 .item {
     height: 100%;
 }
-.nav-items .item a {
+.nav-items a {
     display: block;
     height: 100%;
     padding-top: 32px;
     padding-bottom: 32px;
 
     color: var(--text-h);
-     
+  
 }
 
-.current-page::after {
+.item:hover a {
+
+    color: var(--fill);
+
+}
+
+.nav-items .item .current-page-link {
+    
+    color: var(--fill);
+}
+
+.item.current-page {
+
+    position: relative;
+}
+
+.current-page-link::after {
     content: '';
     display: block;
     width: 100%;
     height: 4px;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
     background: var(--fill);
     border-radius: 2px;
-}
-
-.current-page-link {
-    color: var(--fill);
 }
 
 .icon-header {
@@ -332,6 +361,7 @@ nav .nav-items .item {
     align-items: center;
  }
 
+ 
 /* Hero */
 
 .hero {
@@ -837,6 +867,8 @@ address {
     margin: 15px;
     width: 370px;
     height: 404px;
+
+    
     
 }
 
@@ -857,6 +889,7 @@ address {
 
 .description-img {
     position: relative;
+    overflow: hidden;
     
 }
 .description-img p {
@@ -869,6 +902,7 @@ address {
     padding: 63px 24px;
     width: 100%;
     height: 100%;
+    transform: translateY(100%);
 
     font-size: 18px;
     line-height: 1.56;
@@ -876,9 +910,12 @@ address {
     color: var(--background-color);
     background-color: var(--background-fill);
     opacity: 0;
+    
+    transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.projects-cards:hover .description-img p {
+.projects-cards:hover .description-card-text {
 
+    transform: translateY(0%);
     opacity: 1;
 }
