@@ -128,7 +128,7 @@ button {
      opacity: 0;
      pointer-events: none;
 }
-.model {
+.modal {
       
     position: absolute;
     top: 50%;
@@ -142,7 +142,7 @@ button {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }
-.model-closed {
+.modal-closed {
     position: absolute;
     right: 8px;
     top: 8px;
@@ -156,13 +156,13 @@ button {
     background-color: var(--background-color);
     border: 1px solid rgba(0, 0, 0, 0.1); 
 }
-.icon-closed-model {  
+.icon-closed-modal {  
 
     height: 11px;
     width: 11px;
              
 }
-.model-closed:hover use{
+.modal-closed:hover use{
     fill: var(--fill);
 }
 
